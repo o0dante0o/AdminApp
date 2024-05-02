@@ -1,12 +1,8 @@
-import { Box,Typography,useTheme } from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
+import { Box,Toolbar,Typography,useTheme } from '@mui/material';
+import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { tokens } from '../../theme';
-import { mockDataTeam } from '../../data/mockData';
-import AdminPanelSettingsOutlinedIcon from  '@mui/icons-material/AdminPanelSettingsOutlined';
-import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
-import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
+import { mockDataContacts } from '../../data/mockData';
 import Header from '../../components/Header'
-
   
 
 const Team = () => {
@@ -20,32 +16,7 @@ const Team = () => {
             field: key,
             headerName: key.toUpperCase(),
         };
-        if (key === 'access') {
-            column.renderCell = ({ row }) => {
-                const { access } = row;
-                return (
-                    <Box
-                        width="100%"
-                        m="10px auto"
-                        p=" 5px 10px"
-                        display="flex"
-                        justifyContent="center"
-                        backgroundColor={access === "admin" ? colors.greenAccent[600] :
-                                        access === "manager" ? colors.greenAccent[700] :
-                                        colors.greenAccent[800]}
-                        borderRadius="4px"
-                    >
-                        {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-                        {access === "manager" && <SecurityOutlinedIcon />}
-                        {access === "user" && <LockOpenOutlinedIcon />}
-                        <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-                            {access}
-                        </Typography>
-                    </Box>
-                    );
-                }
-            }
-        else if (typeof value === 'string') {
+        if (typeof value === 'string') {
             column.flex = 1;
             column.cellClassName = 'name-column--cell';
         } else if (typeof value === "number") {
@@ -64,8 +35,8 @@ const Team = () => {
             alignItems='center'>
             
             <Header 
-                title = 'TEAM' 
-                subtitle = 'Manage Your Team'/>
+                title = 'CONTACTS' 
+                subtitle = 'Contacts Information'/>
         </Box>
         <Box 
             m = '40px 0 0 0'
@@ -90,12 +61,16 @@ const Team = () => {
                 '& .MuiDataGrid-footerContainer':{
                     borderTop: 'none',
                     backgroundColor: colors.blueAccent[700]
+                },
+                '& .MuiDataGrid-menu .MuiButton-text':{
+                    color: `${colors.grey[100]} !important`
                 }
             }}
         >
             <DataGrid 
-                rows = {mockDataTeam}
-                columns={columns(mockDataTeam[0])}   
+                rows = {mockDataContacts}
+                columns={columns(mockDataContacts[0])}
+                components = {{Toolbar: GridToolbar}}  
                 />
         </Box>
         
