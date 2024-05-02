@@ -1,11 +1,11 @@
 import { Box,Toolbar,Typography,useTheme } from '@mui/material';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { tokens } from '../../theme';
-import { mockDataContacts } from '../../data/mockData';
+import { mockDataInvoices } from '../../data/mockData';
 import Header from '../../components/Header'
   
 
-const Contacts = () => {
+const Invoices = () => {
     const theme = useTheme();
     const  colors = tokens(theme.palette.mode);
     const columns = (data) => {
@@ -35,8 +35,8 @@ const Contacts = () => {
             alignItems='center'>
             
             <Header 
-                title = 'CONTACTS' 
-                subtitle = 'Contacts Information'/>
+                title = 'INVOICES' 
+                subtitle = 'Invoices Information'/>
         </Box>
         <Box 
             m = '40px 0 0 0'
@@ -68,8 +68,8 @@ const Contacts = () => {
             }}
         >
             <DataGrid 
-                rows = {mockDataContacts}
-                columns={columns(mockDataContacts[0])}
+                rows = {mockDataInvoices}
+                columns={columns(mockDataInvoices[0])}
                 components = {{Toolbar: GridToolbar}}  
                 />
         </Box>
@@ -77,4 +77,4 @@ const Contacts = () => {
     </Box>)
 }
 
-export default Contacts
+export default Invoices
