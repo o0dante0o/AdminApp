@@ -1,5 +1,6 @@
 import {createContext, useState, useMemo} from "react";
 import {createTheme} from "@mui/material/styles";
+import { orange, yellow } from "@mui/material/colors";
 
 //Color design tokens
 export const tokens = (mode) => ({
@@ -59,7 +60,29 @@ export const tokens = (mode) => ({
           700: "#3e4396",
           800: "#2a2d64",
           900: "#151632"
-}
+},
+    yellowAccent: {
+        100: "#f7f1db",
+        200: "#f3e3b7",
+        300: "#efd493",
+        400: "#ebc56f",
+        500: "#e7b64b",
+        600: "#c59c3d",
+        700: "#a3842f",
+        800: "#816b21",
+        900: "#5f5213"
+    },
+    orangeAccent: {
+        100:"#f9e7db",
+        200:"#f3cfb7",
+        300:"#edb793",
+        400:"#e79f6f",
+        500:"#e1884b",
+        600:"#c4723e",
+        700:"#a65c31",
+        800:"#874526",
+        900:"#69301a"
+    }
         
 }:{
     grey: {
@@ -116,6 +139,28 @@ export const tokens = (mode) => ({
       700: "#a4a9fc",
       800: "#c3c6fd",
       900: "#e1e2fe"
+},
+    yellowAccent: {
+        100: "#f7f1db",
+        200: "#f3e3b7",
+        300: "#efd493",
+        400: "#ebc56f",
+        500: "#e7b64b",
+        600: "#c59c3d",
+        700: "#a3842f",
+        800: "#816b21",
+        900: "#5f5213"
+},
+    orangeAccent: {
+        100: "#f9e7db",
+        200: "#f3cfb7",
+        300: "#edb793",
+        400: "#e79f6f",
+        500: "#e1884b",
+        600: "#c4723e",
+        700: "#a65c31",
+        800: "#874526",
+        900: "#69301a"
 }
 }),
 }); 
